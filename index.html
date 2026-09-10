@@ -343,16 +343,24 @@ fetch("historique.json")
     data.forEach(row => {
 
         table += `
-        <tr>
-            <td>${row.Date_MAJ}</td>
-            <td>${row.Heure_MAJ}</td>
-            <td>${row.LME}</td>
-            <td>${row.EURUSD}</td>
-            <td>${row.GIRM}</td>
-            <td>${row.BMC}</td>
-            <td>${row.STATUT}</td>
-        </tr>
-        `;
+<tr>
+
+    <td>${row.Date_LME}</td>
+    <td>${row.LME}</td>
+
+    <td>${row.Date_EURUSD}</td>
+    <td>${row.EURUSD}</td>
+
+    <td>${row.Date_GIRM}</td>
+    <td>${row.GIRM}</td>
+
+    <td>${row.Date_BMC}</td>
+    <td>${row.BMC}</td>
+
+    <td>${row.STATUT}</td>
+
+</tr>
+`;
 
     });
 
