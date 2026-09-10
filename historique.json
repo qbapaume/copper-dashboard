@@ -1,0 +1,80 @@
+[
+    {
+        "Date_MAJ": "10/09/2026",
+        "Heure_MAJ": "11:00:02",
+        "Date_LME": "09/09/2026",
+        "LME": 14672,
+        "Date_EURUSD": "09/09/2026",
+        "EURUSD": 1.1645,
+        "Date_GIRM": "08/09/2026",
+        "GIRM": 1311.3,
+        "Date_BMC": "08/09/2026",
+        "BMC": 1424.75,
+        "STATUT": "DATES DIFFERENTES"
+    },
+    {
+        "Date_MAJ": "09/09/2026",
+        "Heure_MAJ": "11:00:09",
+        "Date_LME": "08/09/2026",
+        "LME": 14737,
+        "Date_EURUSD": "08/09/2026",
+        "EURUSD": 1.1612,
+        "Date_GIRM": "08/09/2026",
+        "GIRM": 1311.3,
+        "Date_BMC": "08/09/2026",
+        "BMC": 1424.75,
+        "STATUT": "OK"
+    },
+    {
+        "Date_MAJ": "08/09/2026",
+        "Heure_MAJ": "11:00:02",
+        "Date_LME": "07/09/2026",
+        "LME": 14540,
+        "Date_EURUSD": "07/09/2026",
+        "EURUSD": 1.1622,
+        "Date_GIRM": "07/09/2026",
+        "GIRM": 1293.1,
+        "Date_BMC": "07/09/2026",
+        "BMC": 1405.29,
+        "STATUT": "OK"
+    },
+    {
+        "Date_MAJ": "07/09/2026",
+        "Heure_MAJ": "11:00:08",
+        "Date_LME": "04/09/2026",
+        "LME": 14371,
+        "Date_EURUSD": "04/09/2026",
+        "EURUSD": 1.1621,
+        "Date_GIRM": "04/09/2026",
+        "GIRM": 1278.7,
+        "Date_BMC": "04/09/2026",
+        "BMC": 1389.86,
+        "STATUT": "OK"
+    },
+    {
+        "Date_MAJ": "04/09/2026",
+        "Heure_MAJ": "11:00:03",
+        "Date_LME": "03/09/2026",
+        "LME": 14359,
+        "Date_EURUSD": "03/09/2026",
+        "EURUSD": 1.1612,
+        "Date_GIRM": "03/09/2026",
+        "GIRM": 1278.7,
+        "Date_BMC": "03/09/2026",
+        "BMC": 1389.89,
+        "STATUT": "OK"
+    },
+    {
+        "Date_MAJ": "03/09/2026",
+        "Heure_MAJ": "18:57:18",
+        "Date_LME": "02/09/2026",
+        "LME": 14355,
+        "Date_EURUSD": "03/09/2026",
+        "EURUSD": 1.1612,
+        "Date_GIRM": "02/09/2026",
+        "GIRM": 1280.2,
+        "Date_BMC": "02/09/2026",
+        "BMC": 1393.69,
+        "STATUT": "DATES DIFFERENTES"
+    }
+]
