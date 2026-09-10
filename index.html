@@ -3,315 +3,365 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>CS - Metal Market Dashboard</title>
+<title>CS - Metal Market Dashboard</title>
 
-    <style>
+<style>
 
-        body{
-            font-family:Arial,sans-serif;
-            margin:30px;
-            background:#f5f5f5;
-            color:#333;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    margin:30px;
+    color:#333;
+}
 
-        .header{
-            display:flex;
-            align-items:center;
-            gap:20px;
-            margin-bottom:20px;
-        }
+.header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+}
 
-        .logo{
-            height:70px;
-            width:auto;
-        }
+.logo{
+    height:60px;
+}
 
-        .title{
-            font-size:32px;
-            font-weight:bold;
-            color:#003366;
-        }
+.title{
+    font-size:32px;
+    font-weight:bold;
+    color:#003366;
+}
 
-        .update{
-            margin-bottom:30px;
-            color:#555;
-        }
+.update{
+    margin-bottom:30px;
+    color:#555;
+}
 
-        .container{
-            display:flex;
-            flex-wrap:wrap;
-            gap:20px;
-            margin-bottom:40px;
-        }
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:40px;
+}
 
-        .card{
-            background:white;
-            border-radius:12px;
-            padding:25px;
-            width:240px;
-            box-shadow:0 2px 10px rgba(0,0,0,0.12);
-        }
+.card{
+    background:white;
+    border-radius:12px;
+    padding:25px;
+    width:240px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+}
 
-        .card h2{
-            margin-top:0;
-            color:#003366;
-        }
+.card h2{
+    margin-top:0;
+    color:#003366;
+}
 
-        .value{
-            font-size:46px;
-            font-weight:bold;
-            color:#003366;
-        }
+.value{
+    font-size:46px;
+    font-weight:bold;
+    color:#003366;
+}
 
-        .unit{
-            margin-top:10px;
-            font-size:13px;
-            color:#666;
-        }
+.unit{
+    margin-top:8px;
+    color:#666;
+    font-size:13px;
+}
 
-        .course-date{
-            margin-top:10px;
-            font-size:13px;
-            color:#666;
-        }
+.course-date{
+    margin-top:8px;
+    color:#666;
+    font-size:13px;
+}
 
-        .variation{
-            margin-top:12px;
-            font-size:16px;
-            font-weight:bold;
-        }
+.variation{
+    margin-top:12px;
+    font-size:16px;
+    font-weight:bold;
+}
 
-        .section-title{
-            color:#003366;
-            margin-bottom:15px;
-        }
+.positive{
+    color:#28a745;
+}
 
-        table{
-            width:100%;
-            border-collapse:collapse;
-            background:white;
-            box-shadow:0 2px 10px rgba(0,0,0,0.12);
-        }
+.negative{
+    color:#dc3545;
+}
 
-        th{
-            background:#003366;
-            color:white;
-            padding:12px;
-        }
+.neutral{
+    color:#666;
+}
 
-        td{
-            padding:10px;
-            border:1px solid #dcdcdc;
-            text-align:center;
-        }
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
 
-        tr:nth-child(even){
-            background:#f4f4f4;
-        }
+th{
+    background:#003366;
+    color:white;
+    padding:12px;
+}
 
-        @media (max-width:900px){
+td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
 
-            .container{
-                flex-direction:column;
-            }
+tr:nth-child(even){
+    background:#f4f4f4;
+}
 
-            .card{
-                width:auto;
-            }
+@media(max-width:900px){
 
-            .header{
-                flex-direction:column;
-                align-items:flex-start;
-            }
+    body{
+        margin:15px;
+    }
 
-        }
+    .cards{
+        flex-direction:column;
+    }
 
-    </style>
+    .card{
+        width:auto;
+    }
+
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-    <div class="header">
+<div class="header">
 
     <img
-        src="{{ url_for('static', filename='logo.png') }}"
+        src="logo.png"
         class="logo"
-    Market Dashboard
+        alt="Copper Solutions">
+
+    <div class="title">
+        CS - Metal Market Dashboard
     </div>
 
 </div>
 
-    <div class="update">
+<div id="update" class="update">
+Loading...
+</div>
 
-        Last update :
-        <strong>{{ date }}</strong>
-        at
-        <strong>{{ heure }}</strong>
+<div class="cards">
+
+    <div class="card">
+
+        <h2>LME</h2>
+
+        <div id="lme" class="value"></div>
+
+        <div class="unit">
+            USD / Ton
+        </div>
+
+        <div id="date_lme" class="course-date"></div>
+
+        <div id="var_lme" class="variation"></div>
 
     </div>
 
-    <div class="container">
+    <div class="card">
 
-        <!-- LME -->
+        <h2>EUR/USD</h2>
 
-        <div class="card">
+        <div id="eurusd" class="value"></div>
 
-            <h2>LME</h2>
-
-            <div class="value">
-                {{ lme }}
-            </div>
-
-            <div class="unit">
-                USD / Ton
-            </div>
-
-            <div class="course-date">
-                Price date: {{ date_lme }}
-            </div>
-
-            <div
-                class="variation"
-                style="color: {{ color_lme }};"
-            >
-                {{ arrow_lme }}
-                {{ var_lme }}
-                ({{ pct_lme }}%)
-            </div>
-
+        <div class="unit">
+            Exchange Rate
         </div>
 
-        <!-- EUR/USD -->
+        <div id="date_eurusd" class="course-date"></div>
 
-        <div class="card">
-
-            <h2>EUR/USD</h2>
-
-            <div class="value">
-                {{ eurusd }}
-            </div>
-
-            <div class="unit">
-                Exchange Rate
-            </div>
-
-            <div class="course-date">
-                Price date: {{ date_eurusd }}
-            </div>
-
-            <div
-                class="variation"
-                style="color: {{ color_eurusd }};"
-            >
-                {{ arrow_eurusd }}
-                {{ var_eurusd }}
-                ({{ pct_eurusd }}%)
-            </div>
-
-        </div>
-
-        <!-- GIRM -->
-
-        <div class="card">
-
-            <h2>GIRM</h2>
-
-            <div class="value">
-                {{ girm }}
-            </div>
-
-            <div class="unit">
-                EUR / 100 Kg
-            </div>
-
-            <div class="course-date">
-                Price date: {{ date_girm }}
-            </div>
-
-            <div
-                class="variation"
-                style="color: {{ color_girm }};"
-            >
-                {{ arrow_girm }}
-                {{ var_girm }}
-                ({{ pct_girm }}%)
-            </div>
-
-        </div>
-
-        <!-- BMC -->
-
-        <div class="card">
-
-            <h2>BMC</h2>
-
-            <div class="value">
-                {{ bmc }}
-            </div>
-
-            <div class="unit">
-                EUR / 100 Kg
-            </div>
-
-            <div class="course-date">
-                Price date: {{ date_bmc }}
-            </div>
-
-            <div
-                class="variation"
-                style="color: {{ color_bmc }};"
-            >
-                {{ arrow_bmc }}
-                {{ var_bmc }}
-                ({{ pct_bmc }}%)
-            </div>
-
-        </div>
+        <div id="var_eurusd" class="variation"></div>
 
     </div>
 
-    <h2 class="section-title">
-        Latest 10 Updates
-    </h2>
+    <div class="card">
 
-    <table>
+        <h2>GIRM</h2>
 
-        <thead>
+        <div id="girm" class="value"></div>
 
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>LME</th>
-                <th>EUR/USD</th>
-                <th>GIRM</th>
-                <th>BMC</th>
-            </tr>
+        <div class="unit">
+            EUR / 100 Kg
+        </div>
 
-        </thead>
+        <div id="date_girm" class="course-date"></div>
 
-        <tbody>
+        <div id="var_girm" class="variation"></div>
 
-            {% for ligne in historique %}
+    </div>
 
-            <tr>
-                <td>{{ ligne.Date_MAJ }}</td>
-                <td>{{ ligne.Heure_MAJ }}</td>
-                <td>{{ ligne.LME }}</td>
-                <td>{{ ligne.EURUSD }}</td>
-                <td>{{ ligne.GIRM }}</td>
-                <td>{{ ligne.BMC }}</td>
-            </tr>
+    <div class="card">
 
-            {% endfor %}
+        <h2>BMC</h2>
 
-        </tbody>
+        <div id="bmc" class="value"></div>
 
-    </table>
+        <div class="unit">
+            EUR / 100 Kg
+        </div>
+
+        <div id="date_bmc" class="course-date"></div>
+
+        <div id="var_bmc" class="variation"></div>
+
+    </div>
+
+</div>
+
+<h2 style="color:#003366;">
+Latest 60 Updates
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Time</th>
+<th>LME</th>
+<th>EUR/USD</th>
+<th>GIRM</th>
+<th>BMC</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="historyTable">
+
+</tbody>
+
+</table>
+
+<script>
+
+fetch("data.json")
+.then(response => response.json())
+.then(data => {
+
+    document.getElementById("update").innerHTML =
+        `Last update: <strong>${data.date}</strong> at <strong>${data.time}</strong>`;
+
+    document.getElementById("lme").innerText =
+        data.lme;
+
+    document.getElementById("eurusd").innerText =
+        data.eurusd;
+
+    document.getElementById("girm").innerText =
+        data.girm;
+
+    document.getElementById("bmc").innerText =
+        data.bmc;
+
+    document.getElementById("date_lme").innerText =
+        "Price date: " + data.date_lme;
+
+    document.getElementById("date_eurusd").innerText =
+        "Price date: " + data.date_eurusd;
+
+    document.getElementById("date_girm").innerText =
+        "Price date: " + data.date_girm;
+
+    document.getElementById("date_bmc").innerText =
+        "Price date: " + data.date_bmc;
+
+    function setVariation(id, arrow, value, pct, color){
+
+        const el = document.getElementById(id);
+
+        el.classList.add(color);
+
+        el.innerHTML =
+            `${arrow} ${value} (${pct}%)`;
+    }
+
+    setVariation(
+        "var_lme",
+        data.arrow_lme,
+        data.var_lme,
+        data.pct_lme,
+        data.color_lme
+    );
+
+    setVariation(
+        "var_eurusd",
+        data.arrow_eurusd,
+        data.var_eurusd,
+        data.pct_eurusd,
+        data.color_eurusd
+    );
+
+    setVariation(
+        "var_girm",
+        data.arrow_girm,
+        data.var_girm,
+        data.pct_girm,
+        data.color_girm
+    );
+
+    setVariation(
+        "var_bmc",
+        data.arrow_bmc,
+        data.var_bmc,
+        data.pct_bmc,
+        data.color_bmc
+    );
+
+});
+
+fetch("historique.json")
+.then(response => response.json())
+.then(data => {
+
+    let table = "";
+
+    data.forEach(row => {
+
+        table += `
+        <tr>
+            <td>${row.Date_MAJ}</td>
+            <td>${row.Heure_MAJ}</td>
+            <td>${row.LME}</td>
+            <td>${row.EURUSD}</td>
+            <td>${row.GIRM}</td>
+            <td>${row.BMC}</td>
+            <td>${row.STATUT}</td>
+        </tr>
+        `;
+
+    });
+
+    document.getElementById("historyTable").innerHTML =
+        table;
+
+});
+
+</script>
 
 </body>
-
 </html>
