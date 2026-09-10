@@ -95,6 +95,12 @@ body{
     color:#666;
 }
 
+.section{
+    color:#003366;
+    margin-top:40px;
+    margin-bottom:15px;
+}
+
 table{
     width:100%;
     border-collapse:collapse;
@@ -105,12 +111,14 @@ th{
     background:#003366;
     color:white;
     padding:12px;
+    font-size:14px;
 }
 
 td{
     padding:10px;
-    border:1px solid #ddd;
     text-align:center;
+    border:1px solid #dddddd;
+    font-size:13px;
 }
 
 tr:nth-child(even){
@@ -229,8 +237,8 @@ Loading...
 
 </div>
 
-<h2 style="color:#003366;">
-Latest 60 Updates
+<h2 class="section">
+Latest 60 Market Records
 </h2>
 
 <table>
@@ -239,12 +247,18 @@ Latest 60 Updates
 
 <tr>
 
-<th>Date</th>
-<th>Time</th>
+<th>LME Date</th>
 <th>LME</th>
+
+<th>EUR/USD Date</th>
 <th>EUR/USD</th>
+
+<th>GIRM Date</th>
 <th>GIRM</th>
+
+<th>BMC Date</th>
 <th>BMC</th>
+
 <th>Status</th>
 
 </tr>
@@ -298,6 +312,7 @@ fetch("data.json")
 
         el.innerHTML =
             `${arrow} ${value} (${pct}%)`;
+
     }
 
     setVariation(
@@ -334,6 +349,7 @@ fetch("data.json")
 
 });
 
+
 fetch("historique.json")
 .then(response => response.json())
 .then(data => {
@@ -343,24 +359,24 @@ fetch("historique.json")
     data.forEach(row => {
 
         table += `
-<tr>
+        <tr>
 
-    <td>${row.Date_LME}</td>
-    <td>${row.LME}</td>
+            <td>${row.Date_LME}</td>
+            <td>${row.LME}</td>
 
-    <td>${row.Date_EURUSD}</td>
-    <td>${row.EURUSD}</td>
+            <td>${row.Date_EURUSD}</td>
+            <td>${row.EURUSD}</td>
 
-    <td>${row.Date_GIRM}</td>
-    <td>${row.GIRM}</td>
+            <td>${row.Date_GIRM}</td>
+            <td>${row.GIRM}</td>
 
-    <td>${row.Date_BMC}</td>
-    <td>${row.BMC}</td>
+            <td>${row.Date_BMC}</td>
+            <td>${row.BMC}</td>
 
-    <td>${row.STATUT}</td>
+            <td>${row.STATUT}</td>
 
-</tr>
-`;
+        </tr>
+        `;
 
     });
 
@@ -372,4 +388,5 @@ fetch("historique.json")
 </script>
 
 </body>
+
 </html>
