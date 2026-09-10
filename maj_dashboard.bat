@@ -6,6 +6,6 @@ python export_json.py
 
 git add .
 
-git commit -m "Daily update"
+git commit -m "Automatic update" || echo No change
 
 git push
