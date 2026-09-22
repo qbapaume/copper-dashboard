@@ -1,16 +1,29 @@
 [
     {
         "Date_MAJ": "22/09/2026",
-        "Heure_MAJ": "09:31:26",
+        "Heure_MAJ": "11:00:02",
         "Date_LME": "21/09/2026",
         "LME": 14788.0,
         "Date_EURUSD": "21/09/2026",
         "EURUSD": 1.1489,
-        "Date_GIRM": "18/09/2026",
+        "Date_GIRM": "21/09/2026",
+        "GIRM": 1329.5,
+        "Date_BMC": "21/09/2026",
+        "BMC": 1444.48,
+        "STATUT": "OK"
+    },
+    {
+        "Date_MAJ": "2026-09-21 00:00:00",
+        "Heure_MAJ": "11:00:00",
+        "Date_LME": "2026-09-18 00:00:00",
+        "LME": 14529.0,
+        "Date_EURUSD": "2026-09-18 00:00:00",
+        "EURUSD": 1.14303,
+        "Date_GIRM": "2026-09-18 00:00:00",
         "GIRM": 1310.3,
         "Date_BMC": "18/09/2026",
         "BMC": 1423.93,
-        "STATUT": "DATES DIFFERENTES"
+        "STATUT": "OK"
     },
     {
         "Date_MAJ": "18/09/2026",
