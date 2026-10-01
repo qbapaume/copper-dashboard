@@ -1,5 +1,18 @@
 [
     {
+        "Date_MAJ": "01/10/2026",
+        "Heure_MAJ": "11:00:08",
+        "Date_LME": "30/09/2026",
+        "LME": 14487.0,
+        "Date_EURUSD": "30/09/2026",
+        "EURUSD": 1.135,
+        "Date_GIRM": "29/09/2026",
+        "GIRM": 1317.9,
+        "Date_BMC": "29/09/2026",
+        "BMC": 1432.19,
+        "STATUT": "DATES DIFFERENTES"
+    },
+    {
         "Date_MAJ": "30/09/2026",
         "Heure_MAJ": "11:00:02",
         "Date_LME": "29/09/2026",
